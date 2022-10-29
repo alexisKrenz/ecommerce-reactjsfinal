@@ -14,12 +14,12 @@ Utiliza:
 
 ### Deployment ###
 
-[https://pabloamil.github.io/e-commerce-reactjs/](https://pabloamil.github.io/e-commerce-reactjs/)---------------------------------------------
+[https://alexisKrenz.github.io/ecommerce-reactjsfinal/](https://alexisKrenz.github.io/ecommerce-reactjsfinal/)---------------------------------------------
 
 
 ### Demo  ###
 
-[GIF animado mostrando funcionamiento y navegabilidad del sitio](https://drive.google.com/drive/folders/1D8qgJNSe4bDPEiG91awcdqOsPlSvNeK9)------------------------
+[GIF animado mostrando funcionamiento y navegabilidad del sitio](https://drive.google.com/file/d/108yXiwjAXhzBNkExL4gWjOGlj_EeJ1o5/view)------------------------
 
 ## E-commerce ##
 
@@ -108,3 +108,4 @@ Mientras se espera que se cumpla la promesa que trae todos los productos en Item
 - NavBar.js 
 
 Solo un NavBar traido de react-bootstrap. Tiene adentro el CartWidget.# ecommerce-reactjsfinal
+# ecommerce-reactjsfinal
