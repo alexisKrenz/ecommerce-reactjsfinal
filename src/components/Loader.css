@@ -1,0 +1,19 @@
+.loader-container {
+    margin-top: 10em;
+    margin-left: 45%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    height: auto;
+    border-radius: 15px;
+
+}
+.loading {
+    text-align: center;
+    color: azure;
+}
+
+h2 {
+    margin-right: 10px;
+}

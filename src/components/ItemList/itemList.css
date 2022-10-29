@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal&display=swap');
+
+.itemList {
+    display: flex;
+    margin-top: 2em;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.itemList img {
+    height: 200px;
+    width: 200px;
+    justify-content: center;
+}
+
+.itemList .card {
+    
+    margin-left: 5em;
+    margin-right: 5em;
+    margin-bottom: 3em;
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 1.856);
+   
+}
+
+.card {
+    opacity: 0.9;
+}
+
+.card-body {
+    background-color: rgba(129, 124, 124, 0.856);
+    font-family: 'Metal', cursive;
+    font-weight: bolder;
+}
+
+.card-img {
+    display: flex;
+    justify-content: center;
+}
+
+.card-data {
+    text-align: center;
+}
+
+.card-lower {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 20px;
+}

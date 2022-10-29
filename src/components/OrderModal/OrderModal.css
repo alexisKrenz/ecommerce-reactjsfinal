@@ -1,0 +1,47 @@
+.modal-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footerOrderSuccess {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.subtext-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 2em;
+}
+
+.modal-content {
+    background-color: rgb(18, 19, 32);
+    border: 2px solid #03bcf4;
+    box-shadow: 3px 3px 81px 10px #03bcf4;
+-webkit-box-shadow: 3px 3px 81px 10px #03bcf4;
+-moz-box-shadow: 3px 3px 81px 10px #03bcf4;
+}
+
+.modal-header {
+    color: #fff;
+}
+
+.form-label {
+    color: #fff;
+}
+
+.footerOrderSuccess {
+    color: #fff;
+}
+
+.modal-content button {
+    color: #fff;
+}
+
