@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+###### Proyecto final: Ecommerce Reactjs - Alexis Krenz #####
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Creado a través de [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Utiliza:
 
-In the project directory, you can run:
+- Bootstrap
+- ReactJS
+- Firebase
+- react-icons
+- react-router
+- context
+- react hooks
 
-### `npm start`
+### Deployment ###
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[https://pabloamil.github.io/e-commerce-reactjs/](https://pabloamil.github.io/e-commerce-reactjs/)---------------------------------------------
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Demo  ###
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[GIF animado mostrando funcionamiento y navegabilidad del sitio](https://drive.google.com/drive/folders/1D8qgJNSe4bDPEiG91awcdqOsPlSvNeK9)------------------------
 
-### `npm run build`
+## E-commerce ##
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Este proyecto fue realizado en ReactJS, simula una tienda de vinos. 
+Obtiene de una base de datos en la nube de Firebase los articulos con sus respectivas propiedades y las muesta. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Posee las siguientes funciones: 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Seleccionar las categorias para que se muestren solo aquellos productos que coincidan con ella. 
+- Ver el detalle descripcion, precio y stock de los productos. 
+- Seleccionar la cantidad hasta el limite determinado por el stock en la base de datos.
+- Agregar los productos al carrito de compras, el cual se puede acceder facilmente desde la parte superior de la pagina.
+- Ver la cantidad de productos que forman parte del carrito.
+- Ver el valor parcial/total de la compra, detallando aparte el precio por unidad.
+- Comprar todos los productos figurantes en el carrito.
+- Eliminar todos o un solo producto.
+- A la hora de efectuar la compra realiza peticion de datos y en el caso de no cumplir con lo pedido deshabilita la opcion de comprar. 
 
-### `npm run eject`
+## Proximas funciones a agregar ##
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Lista de deseos
+- Almacenar carrito que quede disponible y seguir la compra en otro momento
+- Historial de compras
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Estructura ##
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### `/context` ####
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Contiene cartContext.js. Tiene dentro la parte de codigo que se encarga de agregar los productos, checkear si ya se encuentran dentro, remover 1 o todos, calcular la cantidad de items y el total a pagar. 
 
-## Learn More
+#### `/Utils` ####
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Contiene orders.js y products.js.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+orders.js crea una nueva coleccion en firebase usando la base de datos y el nombre a utilizar de la coleccion a crear. Devuelve una promesa utilizando addDoc() para crear el objeto en firestore. despues, la funcion createOrder() es importada en Cart.js y obtiene los parametros de la nueva orden. 
 
-### Code Splitting
+products.js 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+products.js accede a la base de datos de firestore en donde estan alojados todos los productos y los trae conforme sea necesario, ya sea por el id o bien por el categoryId. 
 
-### Analyzing the Bundle Size
+#### `/components` ####
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+contiene las carpetas:
+- Cart:
 
-### Making a Progressive Web App
+Contiene Cart.css y Cart.js. Cart.js Contiene las funciones que permiten agregar items al Cart, removerlos de a uno o todos a la vez. Aparte contiene como componente hijo a OrderModal y habilita su renderizado. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- CartWidget:
 
-### Advanced Configuration
+Contiene CartWidget.css para estilizado y CartWidget.js. CartWidget.js tiene la variable quantity por medio de useContext y muestra el numero de elementos que el Cart tiene dentro; ademas del icono del Cart en el NavBar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- ItemDetail:
 
-### Deployment
+Contiene ItemDetailContainer.js, ItemDetail.js, ItemCount.js, ItemCount.css, Description.js y Description.css
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+ItemDetailContainer.js usa el hook useParams y obtiene un id perteneciente a un producto especifico por medio de una promesa en products.js dentro de Utils, que devuelve los productos traidos de Firebase. Usa el hook useState para asignarlos al estado "product" y lo envia como atributo a ItemDetail.js
 
-### `npm run build` fails to minify
+ItemDetail.js toma el producto recibido y la funcion addItem traida del cartContext.js; en tanto addItem se encargara de checkear si este ya existe en el cart tambien envia la cantidad seleccionada. Envia el objeto "product", el estado "showItemCount" y la funcion handleAdd() a Description.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Description.js toma el objeto "product" y lista sus propiedades y valores para que el usuario pueda ver lo que esta comprando. Al ejecutarse handleAdd() el valor de showItemCount es seteado a false y Description.js por medio de un condicional ofrece los botones de volver al index o bien dirigirse al carrito. 
+
+ItemCount.js maneja los valores (adiciones y sustracciones) de la cantidad de productos que se desean al terminar ejecuta la funcion handleAdd().
+
+- ItemList
+
+Contiene ItemListContainer.js, ItemList.js e Item.js; ademas contiene itemList.css e ItemListContainer.css
+
+ItemListContainer.js obtiene el parametro categoryId por medio del hook useParams(). Si la especificacion se da, al estado products lo setea con el resultado de los objetos en la base de datos cuya categoria coincida, sino los mouestra todos. products es enviado a ItemList.
+
+ItemList.js recibe products y por medio de el metodo map a cada uno lo asigna a un componente Item, que recibe por atributo el objeto product (cada uno de los productos que conformaban products).
+
+Item.js recibe product y se encarga de en una Card mostrar las propiedades solicitadas. Si ya se encontrase seleccionado por medio de un condicional y utilizando la funcion isInCart de CartContext se encarga de anular la posibilidad de volver a agregarlo.
+
+- OrderModal
+
+Contiene OrderModal.css y OrderModal.js. La funcion de OrderModal.js es morstrar el formulario a llenar para poder completar la compra, solicitando una repeticion del input perteneciente al correo electronico.
+
+Recibe la funcion handleBuy (por atributo onBuy) la cual crea la orden y al terminar vacia el Cart.
+
+y los archivos:
+
+- Loader.js
+
+Mientras se espera que se cumpla la promesa que trae todos los productos en ItemList, Loader se muestra en tanto products figure como un array vacio, al cumplirse la promesa este desaparece. 
+
+- NavBar.js 
+
+Solo un NavBar traido de react-bootstrap. Tiene adentro el CartWidget.# ecommerce-reactjsfinal
