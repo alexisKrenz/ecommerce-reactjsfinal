@@ -14,12 +14,12 @@ Utiliza:
 
 ### Deployment ###
 
-[https://alexisKrenz.github.io/ecommerce-reactjsfinal/](https://alexisKrenz.github.io/ecommerce-reactjsfinal/)---------------------------------------------
+[https://alexisKrenz.github.io/ecommerce-reactjsfinal/](https://alexisKrenz.github.io/ecommerce-reactjsfinal/)
 
 
 ### Demo  ###
 
-[GIF animado mostrando funcionamiento y navegabilidad del sitio](https://drive.google.com/file/d/108yXiwjAXhzBNkExL4gWjOGlj_EeJ1o5/view)------------------------
+[GIF animado mostrando funcionamiento y navegabilidad del sitio](https://drive.google.com/file/d/108yXiwjAXhzBNkExL4gWjOGlj_EeJ1o5/view)
 
 ## E-commerce ##
 
